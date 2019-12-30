@@ -96,11 +96,9 @@
 * {
   box-sizing: border-box;
 }
-
 body {
   font-family: Arial, Helvetica, sans-serif;
 }
-
 /* Style the header */
 header {
   background-color: #666;
@@ -109,22 +107,28 @@ header {
   font-size: 35px;
   color: white;
 }
-
 /* Create two columns/boxes that floats next to each other */
-nav {
+.navbar {
+  width: 100%;
+  background-color: #555;
+  overflow: auto;
+}
+
+.navbar a {
   float: left;
-  width: 30%;
-  height: 600px; /* only for demonstration, should be removed */
-  background: #ccc;
-  padding: 20px;
+  padding: 12px;
+  color: white;
+  text-decoration: none;
+  font-size: 17px;
 }
 
-/* Style the list inside the menu */
-nav ul {
-  list-style-type: none;
-  padding: 0;
+.navbar a:hover {
+  background-color: #000;
 }
 
+.active {
+  background-color: #4CAF50;
+}
 article {
   float: left;
   padding: 20px;
@@ -132,14 +136,12 @@ article {
   background-color: #f1f1f1;
   /*height: 300px; /* only for demonstration, should be removed */
 }
-
 /* Clear floats after the columns */
 section:after {
   content: "";
   display: table;
   clear: both;
 }
-
 /* Style the footer */
 footer {
   background-color: #777;
@@ -147,7 +149,6 @@ footer {
   text-align: center;
   color: white;
 }
-
 /* Responsive layout - makes the two columns/boxes stack on top of each other instead of next to each other, on small screens */
 @media (max-width: 600px) {
   nav, article {
@@ -155,7 +156,6 @@ footer {
     height: auto;
   }
 }
-
  table {
     font-family: arial, sans-serif;
     border-collapse: collapse;
@@ -176,13 +176,12 @@ footer {
   <h2>T's Web</h2>
 </header>
 
+<div class="navbar">
+  <a class="active" href="#"><i class="fa fa-fw fa-home"></i> Home</a> 
+  <a target="_self" href="sub1.html"><i class="fa fa-fw fa-Resume"></i> Resume</a> 
+</div>
+
 <section>
-  <nav>
-    <ul>
-      <li><a target="_self" href="sub1.html">Resume</a></li>
-    </ul>
-  </nav>
-  
   <article>
     <h1>Grant Calculator For UC</h1>
       <form name="calculator">
