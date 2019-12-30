@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <base target="_blank">
+   <script language="JavaScript">
+            function myFunction(){
+            // Calculations, change the values in the codes if needed
+              var units = document.getElementById("Units").value;
+              var EFC = document.getElementById("EFC").value;
+              var oneCost = 6297;
+              var twoCost = 8337;
+              
+              var grantA = 0;
+              var x = document.getElementById("enroll").value;
+              var y = document.getElementById("grant").value;
+              var E3 = 0;
+              var E4 = 0;
+              var E5 = 0;
+              var E6 = 0;
+              var E8 = 0;
+              
+              // E3
+              if(x == "Yes"){
+              EFC = EFC/6;
+              E3 = twoCost-5037-EFC;
+              }else{
+              EFC = EFC/7;
+              E3 = oneCost-3497-EFC;
+              }
+              var EFC = document.getElementById("EFC").value;
+              
+              //E4
+              if(E3 > 750){
+                E4 = E3;
+              }else{
+                E4 = 750;
+              }
+              
+              //E5
+              if(EFC == 0){
+                E5 = 6095;
+              }else{
+              	if(EFC < 101){
+                 E5 = 6045;
+                }else{
+                  if(EFC < 5401){
+                   E5 = 6145-((Math.floor(EFC/100))*100);
+                  }else{
+                   if(EFC<5487){
+                     E5 = 626;
+                   }else{
+                     E5 = 0;
+                   }
+                  }
+                }
+              }
+              
+              //E6
+              if(units > 11){
+                E6 = E5/3;
+              }else{
+                if(units > 8){
+                  E6 = (E5/3)*0.75;
+                }else{
+                  if(units > 5){
+                    E6 = (E5/3)*0.5;
+                  }else{
+                    E6 = 0;
+                  }
+                }
+              }
+              
+              //E8
+              if((E3 - E6) > E4){
+                E8 = E3;
+              }else{
+                if((E3 - E6) < 750){
+                  E8 = 750;
+                }else{
+                  E8 = E3 - E6;
+                }
+              }
+              
+              if( y == "No" || units < 10){
+              	grantA = 0;
+               }else{
+                grantA = Math.round(E8 + E6);
+               }
+             document.getElementById("display").value = grantA;
+            }
+            </script>
+<title>CSS Template</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+/* Style the header */
+header {
+  background-color: #666;
+  padding: 30px;
+  text-align: center;
+  font-size: 35px;
+  color: white;
+}
+/* Create two columns/boxes that floats next to each other */
+.navbar {
+  width: 100%;
+  background-color: #555;
+  overflow: auto;
+}
+.navbar a {
+  float: left;
+  padding: 12px;
+  color: white;
+  text-decoration: none;
+  font-size: 17px;
+}
+.navbar a:hover {
+  background-color: #000;
+}
+.active {
+  background-color: #4CAF50;
+}
+article {
+  float: left;
+  padding: 20px;
+  width: 70%;
+  background-color: #f1f1f1;
+  /*height: 300px; /* only for demonstration, should be removed */
+}
+/* Clear floats after the columns */
+section:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+/* Style the footer */
+footer {
+  background-color: #777;
+  padding: 10px;
+  text-align: center;
+  color: white;
+}
+/* Responsive layout - makes the two columns/boxes stack on top of each other instead of next to each other, on small screens */
+@media (max-width: 600px) {
+  nav, article {
+    width: 100%;
+    height: auto;
+  }
+}
+ table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+   }
+    td, th {
+     border: 1px solid #dddddd;
+     text-align: left;
+     padding: 8px;
+   }
+    tr:nth-child(even) {
+     background-color: #dddddd;
+   }
+</style>
+</head>
+<body style="margin:0;">
+<header>
+  <h2>T's Web</h2>
+</header>
+
+<div class="navbar">
+  <a class="active" href="#">Home</a> 
+  <a target="_self" href="sub1.html">Resume</a>
+  <a target="_self" href="sub1.html">Contact</a>
+  <a target="_self" href="sub1.html">Grant Calculator</a>
+</div>
+
+<section>
+  <article>
+    <h1>Grant Calculator For UC</h1>
+      <form name="calculator">
+         <table>
+           <tr>
+             <th></th>
+             <th>Student Calculator</th>
+           </tr>
+           <tr>
+              <td>Number of credits you plan to enroll in Summer (minimum 10 for eligibility)</td>
+              <td><input type="text" id="Units" value="0" oninput = "myFunction();"></td>
+           </tr>
+               <tr>
+                <td>Do you plan to enroll in 8 or more weeks of summer session?</td>
+                <td>
+                <select id = "enroll" onchange = "myFunction();">
+  				  <option value="Yes">Yes</option>
+ 			      <option value="No">No</option>
+			    </select>
+                </td>
+             </tr>
+             <tr>
+             <td>Did you receive grants this academic year (not including scholarships, such as the Middle Class Scholarship)?</td>
+              <td>
+                <select id = "grant" onchange = "myFunction();">
+  				  <option value="Yes">Yes</option>
+ 			      <option value="No">No</option>
+			    </select>
+             </td>
+             </tr>
+            <tr>
+            <td>What is your 2018-19 EFC? 
+<br><font size = "2">Locate this on your Student Aid Report(SAR) from studentaid.gov/fafsa or at dream.csac.gov for Dreamers</font></td>
+            <td><input type="text" id="EFC" value="0" oninput = "myFunction()"></td>
+			</tr>
+            <tr>
+            <td>Estimated University Grant Eligibility 
+<br><font size = "2">(amount includes both Pell Grant and University Grant for Pell Eligible Students)</font></td>
+            <td><input type="text" id="display" disabled></td>
+			</tr>
+            <tr><td></td><td></td></tr>
+          </table>
+        </form>
+  </article>
+</section>
+
+<footer>
+  <p>Footer</p>
+</footer>
+
+</body>
+</html>
