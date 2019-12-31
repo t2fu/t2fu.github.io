@@ -1,64 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>CSS Template</title>
+  <script src="https://kit.fontawesome.com/26517c8f06.js" crossorigin="anonymous"></script>
+   <base target="_blank">
+<title>T's Contact</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
 * {
   box-sizing: border-box;
 }
-
 body {
   font-family: Arial, Helvetica, sans-serif;
 }
-
-/* Style the header */
 header {
-  background-color: #666;
-  padding: 30px;
-  text-align: center;
+  background-color: #333333;
+  padding: 25px;
+  text-align: left;
   font-size: 35px;
   color: white;
 }
-
 /* Create two columns/boxes that floats next to each other */
-nav {
+.navbar {
+  width: 100%;
+  background-color: #555;
+  overflow: auto;
+}
+.navbar a {
   float: left;
-  width: 30%;
-  height: 600px;
-  background: #ccc;
-  padding: 20px;
+  padding: 12px;
+  color: white;
+  text-decoration: none;
+  font-size: 17px;
 }
-
-/* Style the list inside the menu */
-nav ul {
-  list-style-type: none;
-  padding: 0;
+.navbar a:hover {
+  background-color: #FA3455;
 }
-
+.active {
+  background-color: #4CAF50;
+}
 article {
   float: left;
   padding: 20px;
-  width: 70%;
-  background-color: #f1f1f1;
+  width: 100%;
+  background-color: #FFFFFF;
+  /*height: 300px; /* only for demonstration, should be removed */
 }
-
 /* Clear floats after the columns */
 section:after {
   content: "";
   display: table;
   clear: both;
 }
-
 /* Style the footer */
 footer {
-  background-color: #777;
-  padding: 10px;
+  background-color: #333333;
   text-align: center;
+  padding: 40px;
   color: white;
 }
-
+.fa-facebook:hover {
+    opacity: 0.7;
+}
+.fa-facebook {
+  color: #3B5998;
+}
+.fa-snapchat:hover {
+    opacity: 0.7;
+}
+.fa-snapchat{
+  color: #fffc00;
+}
+.fa-github:hover {
+    opacity: 0.7;
+}
+.fa-github{
+  color: white;
+}
+.fa-linkedin:hover {
+    opacity: 0.7;
+}
+.fa-linkedin {
+  color: #007bb5;
+}
 /* Responsive layout - makes the two columns/boxes stack on top of each other instead of next to each other, on small screens */
 @media (max-width: 600px) {
   nav, article {
@@ -66,29 +90,45 @@ footer {
     height: auto;
   }
 }
+ table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+   }
+    td, th {
+     border: 1px solid #dddddd;
+     text-align: left;
+     padding: 8px;
+   }
+    tr:nth-child(even) {
+     background-color: #dddddd;
+   }
+   
 </style>
 </head>
 <body style="margin:0;">
-
 <header>
-  <h2>Resume</h2>
+  <h2>Contact Information</h2>
 </header>
 
+<div class="navbar">
+  <a target="_self" href="index.html"><i class="fa fa-fw fa-home"></i> Home</a> 
+  <a target="_self" href="sub1.html"><i class="fa fa-fw fa-file"></i> Resume</a>
+  <a class="active" target="_self" href="#"><i class="fa fa-fw fa-phone"></i> Contact</a>
+  <a target="_self" href="sub3.html"><i class="fa fa-fw fa-calculator"></i> Grant Calculator</a>
+</div>
+
 <section>
-  <nav>
-    <ul>
-      <li><a target="_self" href="index.html">Home</a></li>
-    </ul>
-  </nav>
-  
   <article>
     <embed src="Tiancheng_Fu_2019_Resume_1.pdf" type="application/pdf" width="100%" height="600px" />
   </article>
 </section>
 
 <footer>
-  <p>Footer</p>
+  <a target="_self" href="https://www.facebook.com/profile.php?id=100007079986448"><i class="fab fa-facebook fa-5x fa-fw fa-fw fa-fw fa-fw"></i></a>
+  <a target="_self" href="https://snapchat.com/add/tianxdfu"><i class="fab fa-snapchat fa-5x fa-fw fa-fw"></i></a>
+  <a target="_self" href="https://github.com/t2fu"><i class="fab fa-github fa-5x fa-fw fa-fw"></i></a>
+  <a target="_self" href="https://www.linkedin.com/in/tiancheng-fu-b67194156"><i class="fab fa-linkedin fa-5x fa-fw"></i></a>
 </footer>
-
 </body>
 </html>
