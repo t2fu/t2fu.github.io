@@ -3,93 +3,6 @@
 <head>
   <script src="https://kit.fontawesome.com/26517c8f06.js" crossorigin="anonymous"></script>
    <base target="_blank">
-   <script language="JavaScript">
-            function myFunction(){
-            // Calculations, change the values in the codes if needed
-              var units = document.getElementById("Units").value;
-              var EFC = document.getElementById("EFC").value;
-              var oneCost = 6297;
-              var twoCost = 8337;
-              
-              var grantA = 0;
-              var x = document.getElementById("enroll").value;
-              var y = document.getElementById("grant").value;
-              var E3 = 0;
-              var E4 = 0;
-              var E5 = 0;
-              var E6 = 0;
-              var E8 = 0;
-              
-              // E3
-              if(x == "Yes"){
-              EFC = EFC/6;
-              E3 = twoCost-5037-EFC;
-              }else{
-              EFC = EFC/7;
-              E3 = oneCost-3497-EFC;
-              }
-              var EFC = document.getElementById("EFC").value;
-              
-              //E4
-              if(E3 > 750){
-                E4 = E3;
-              }else{
-                E4 = 750;
-              }
-              
-              //E5
-              if(EFC == 0){
-                E5 = 6095;
-              }else{
-              	if(EFC < 101){
-                 E5 = 6045;
-                }else{
-                  if(EFC < 5401){
-                   E5 = 6145-((Math.floor(EFC/100))*100);
-                  }else{
-                   if(EFC<5487){
-                     E5 = 626;
-                   }else{
-                     E5 = 0;
-                   }
-                  }
-                }
-              }
-              
-              //E6
-              if(units > 11){
-                E6 = E5/3;
-              }else{
-                if(units > 8){
-                  E6 = (E5/3)*0.75;
-                }else{
-                  if(units > 5){
-                    E6 = (E5/3)*0.5;
-                  }else{
-                    E6 = 0;
-                  }
-                }
-              }
-              
-              //E8
-              if((E3 - E6) > E4){
-                E8 = E3;
-              }else{
-                if((E3 - E6) < 750){
-                  E8 = 750;
-                }else{
-                  E8 = E3 - E6;
-                }
-              }
-              
-              if( y == "No" || units < 10){
-              	grantA = 0;
-               }else{
-                grantA = Math.round(E8 + E6);
-               }
-             document.getElementById("display").value = grantA;
-            }
-            </script>
 <title>T's Website</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -97,10 +10,11 @@
 * {
   box-sizing: border-box;
 }
+html{
+}
 body {
   font-family: Arial, Helvetica, sans-serif;
 }
-
 header {
   background-color: #333333;
   padding: 25px;
@@ -108,7 +22,7 @@ header {
   font-size: 35px;
   color: white;
 }
-/* Create two columns/boxes that floats next to each other */
+
 .navbar {
   width: 100%;
   background-color: #555;
@@ -132,7 +46,6 @@ article {
   padding: 20px;
   width: 100%;
   background-color: #FFFFFF;
-  /*height: 300px; /* only for demonstration, should be removed */
 }
 /* Clear floats after the columns */
 section:after {
@@ -140,8 +53,22 @@ section:after {
   display: table;
   clear: both;
 }
+
 /* Style the footer */
+page-container {
+  position: relative;
+  min-height: 100vh;
+}
+
+content-wrap {
+  padding-bottom: 2.5 rem;/* Footer height */
+}
+
 footer {
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  height: 2.5 rem;
   background-color: #333333;
   text-align: center;
   padding: 40px;
@@ -171,7 +98,7 @@ footer {
 .fa-linkedin {
   color: #007bb5;
 }
-/* Responsive layout - makes the two columns/boxes stack on top of each other instead of next to each other, on small screens */
+/* Responsive layout*/
 @media (max-width: 600px) {
   nav, article {
     width: 100%;
@@ -208,51 +135,18 @@ footer {
 
 <section>
   <article>
-    <h1>Grant Calculator For UC</h1>
-      <form name="calculator">
-         <table>
-           <tr>
-             <th></th>
-             <th>Student Calculator</th>
-           </tr>
-           <tr>
-              <td>Number of credits you plan to enroll in Summer (minimum 10 for eligibility)</td>
-              <td><input type="text" id="Units" value="0" oninput = "myFunction();"></td>
-           </tr>
-               <tr>
-                <td>Do you plan to enroll in 8 or more weeks of summer session?</td>
-                <td>
-                <select id = "enroll" onchange = "myFunction();">
-  				  <option value="Yes">Yes</option>
- 			      <option value="No">No</option>
-			    </select>
-                </td>
-             </tr>
-             <tr>
-             <td>Did you receive grants this academic year (not including scholarships, such as the Middle Class Scholarship)?</td>
-              <td>
-                <select id = "grant" onchange = "myFunction();">
-  				  <option value="Yes">Yes</option>
- 			      <option value="No">No</option>
-			    </select>
-             </td>
-             </tr>
-            <tr>
-            <td>What is your 2018-19 EFC? 
-<br><font size = "2">Locate this on your Student Aid Report(SAR) from studentaid.gov/fafsa or at dream.csac.gov for Dreamers</font></td>
-            <td><input type="text" id="EFC" value="0" oninput = "myFunction()"></td>
-			</tr>
-            <tr>
-            <td>Estimated University Grant Eligibility 
-<br><font size = "2">(amount includes both Pell Grant and University Grant for Pell Eligible Students)</font></td>
-            <td><input type="text" id="display" disabled></td>
-			</tr>
-            <tr><td></td><td></td></tr>
-          </table>
-        </form>
+    <h1>UCSC CUIP Success Story</h1>
+    
+    <p>My name is Tiancheng Fu, I am the Website and Communication intern in the UCSC Financial Aid and Scholarship Office (FASO) during the 2018-2019 school year. I am a sophomore computer science student who is affiliated with Stevenson College. My major is the reason that I decided to become a Website and Communication intern. I hope to become a software engineer after I graduate from university. Like other careers, software engineer requires numerous hands-on experience. Throughout my academic career, I feel the majority of my classes lack applicability. My internship gives me a chance to apply what I have learned in my classes into real-life application. Beside of my academic interest in my internship, the scholarship provides by the internship is a great way to help me to pay for my university spendings.</p>
+    
+<p>As a Website and Communication intern, my main project is the Website Accessibility Develop. The amount of incoming student in UCSC  has been increasing in the past few years, but the state of California has been continually decreasing its funding to the University of California System. The increasing need for financial assistance often causes long waiting time for FASO support. My project is targeting to improve existing FASO websites and add new websites to help UCSC students understand the amount of financial aid they can receive without showing up to FASO in-person. In addition, my project is aiming to improve the university faculties' accessibility to the resources in the Financial Aid Office.</P>
+
+<p>The project uses the existing FASO websites as basic platforms and expands them beyond their current areas. The project implication includes adding new content and fixing broken links on the existing website as the support component of the project. The main website development focuses on student support websites and faculty support websites. Two examples of the main website development are the Summer Grant Calculator, which helps students determine how much grant they can get for their summer quarter, and the Department Award Website, which assists the UCSC faculties and staffs with processes of reporting scholarships, prizes, and reimbursements to students. The website developments involve heavily with web-develop skills and teamwork skills since I am requiring to obtain accurate information from other staffs in FASO in order to create website contents.</P>
+
+<p>In conclusion, I believe the UCSC students, faculties, and staffs will be satisfied with the project because they don’t have to call or come to FASO in-person every time when they have questions regarding financial aids. The biggest challenge I have encountered during my internship is the long waiting time for finding support from other UCSC departments, but I was able to solve this issue over time. Personally, I am really happy with my project as I gained numerous experience in web-developing and communicating with peers. I believe the experience I have gained during my internship will greatly help me in both my future academic careers and programming careers.</p>
+
   </article>
 </section>
-
 <footer>
   <a target="_self" href="https://www.facebook.com/profile.php?id=100007079986448"><i class="fab fa-facebook fa-5x fa-fw fa-fw fa-fw fa-fw"></i></a>
   <a target="_self" href="https://snapchat.com/add/tianxdfu"><i class="fab fa-snapchat fa-5x fa-fw fa-fw"></i></a>
