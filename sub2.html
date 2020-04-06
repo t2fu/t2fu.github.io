@@ -10,8 +10,19 @@
 * {
   box-sizing: border-box;
 }
+html{
+  height: 100%;
+}
 body {
   font-family: Arial, Helvetica, sans-serif;
+  height: 100%;
+}
+#container{
+    min-height: 100%;
+}
+#main{
+    overflow: auto;
+    padding-bottom: 100px;
 }
 header {
   background-color: #333333;
@@ -53,15 +64,15 @@ section:after {
   clear: both;
 }
 
-footer {
-  position: absolute;
-  bottom: 0;
+#footer {
+  position: relative;
+  height: 150px;
+  margin-top: -100px;
   width: 100%;
-  height: 2.5 rem;
   background-color: #333333;
   text-align: center;
   padding: 40px;
-  color: white;
+  clear:both;
 }
 .fa-facebook:hover {
     opacity: 0.7;
@@ -111,6 +122,8 @@ footer {
 </style>
 </head>
 <body style="margin:0;">
+<div id="container">
+<div id="main">
 <header>
   <h2>Contact Information</h2>
 </header>
@@ -130,8 +143,9 @@ footer {
   <p>Email: t2fu@ucsd.edu</p>
   </article>
 </section>
-
-<footer>
+</div>
+</div>
+<footer id="footer">
   <a target="_self" href="https://www.facebook.com/profile.php?id=100007079986448"><i class="fab fa-facebook fa-5x fa-fw fa-fw fa-fw fa-fw"></i></a>
   <a target="_self" href="https://snapchat.com/add/tianxdfu"><i class="fab fa-snapchat fa-5x fa-fw fa-fw"></i></a>
   <a target="_self" href="https://github.com/t2fu"><i class="fab fa-github fa-5x fa-fw fa-fw"></i></a>
